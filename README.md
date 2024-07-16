@@ -7,7 +7,7 @@ This project takes the idea of Recoil.js and Jotai but simplifies it moreso to a
 Install by running
 
 ```shell
-yarn i shapesjs
+yarn i shapesjs-gsm
 ```
 
 ## Features:
