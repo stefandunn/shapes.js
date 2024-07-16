@@ -16,6 +16,34 @@ yarn i shapesjs-gsm
 
 Because this library does not require any Context providers, you can simply install the library and create states anywhere. You can even read and write values without the need for hooks.
 
+#### Within components
+
+```tsx
+// Exported from another file to enable HMR.
+export const nameShape = shape('');
+
+// Main app
+export function App() {
+  const [name, setName] = useShape(nameShape);
+
+  return (
+    <>
+      <input
+        value={name}
+        onChange={({ currentTarget: { value } }) => setName(value)}
+      />
+      My name is {name}
+    </>
+  );
+}
+```
+
+#### Within helper funtions
+
+```typescript
+export const updateName = (name: string) => nameShape.setValue(name);
+```
+
 ### Familiar syntax 💪
 
 The library uses very similar syntax to `React.useState` so it's super easy to pick up.
@@ -36,7 +64,7 @@ export function App() {
 }
 ```
 
-### State Persistance through Storage
+### State Persistance through Storage 📦
 
 Support for any [Storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage) class to manage a persistant state of any shape.
 
@@ -47,6 +75,10 @@ export const buttonCount = shape(0, window.localStorage);
 ```
 
 You can use any custom storage class usage which implements `setItem` and `getItem` interfaces.
+
+### Typescript support ✅
+
+Typed for convenience.
 
 ### HMR ♻️
 
