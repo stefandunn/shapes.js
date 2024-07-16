@@ -38,7 +38,7 @@ export function App() {
 }
 ```
 
-#### Within helper funtions
+#### Within helper functions
 
 ```typescript
 export const updateName = (name: string) => nameShape.setValue(name);
