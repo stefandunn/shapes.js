@@ -1,6 +1,6 @@
 # Shapes.js Global State Management
 
-This project takes the idea of Recoil.js and Jotai but simplifies it moreso to avoid any dependencies within React other than React itself. This means the project is very small, and be tree-shaken and do not require any Context providers to work.
+This project takes the idea of [Recoil.js](https://recoiljs.org/)(no longer maintained) and [Jotai](https://jotai.org/) but simplifies it moreso to avoid any dependencies within React other than React itself. This means the project is very small, and be tree-shaken and do not require any Context providers to work.
 
 ## Installation
 
@@ -35,6 +35,18 @@ export function App() {
   return <button onClick={increment}>Button has been click {count} times</button>;
 }
 ```
+
+### State Persistance through Storage
+
+Support for any [Storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage) class to manage a persistant state of any shape.
+
+You can modify the above to use localStorage to maintain the shape's value on page navigation.
+
+```tsx
+export const buttonCount = shape(0, window.localStorage);
+```
+
+You can use any custom storage class usage which implements `setItem` and `getItem` interfaces.
 
 ### HMR ♻️
 
